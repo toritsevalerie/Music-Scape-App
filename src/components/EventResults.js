@@ -1,35 +1,33 @@
-import { useState} from "react";
+import NoResults from "./NoResults.js";
 
-const SearchBar = ({ onSubmit }) => {
-  //7. here we deconstruct and put the prop event listener name in here so we can call it later on
-  const [userInput, setUserInput] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit(userInput); //9. here is where the fetchevents runs because we passed it as a prop and it will call whatever the user inputed here to be fetche dby the api
-
-    setTimeout(() => {
-      setUserInput("");
-    }, 10000); // to make the input text dissapear (timeout lets me set a time to it)
-  };
-  const handleChange = (e) => {
-    setUserInput(e.target.value);
-  };
-
+const EventResults = ({ events }) => {
   return (
-    <form onSubmit={handleSubmit}>
-      {/* 8.In this case this is not a prop because it is in jsx and it is on a html like element not an component, so now we are calling an event listener and assigning it a function/event handler to prevent default and also call the fetchevents function we passed at the top. */}
-      <label htmlFor="searchGenreArtist">search</label>
-      <input
-        type="text"
-        id="searchGenreArtist"
-        name="search"
-        value={userInput}
-        onChange={handleChange}
-      />
-      <button>Go</button>
-    </form>
+    <section>
+      {events && events.length === 0 ? (
+        <h3>Search for your favourite events</h3>
+      ) : events.length > 0 ? (
+        <section>
+          <h1>Here are the events</h1>
+          <ul>
+            {events.map((singleEvent) => {
+              return (
+                <li key={singleEvent.id}>
+                  <img
+                    src={singleEvent.images[0].url}
+                    alt={singleEvent.description}
+                  />
+                  <p>{singleEvent.name}</p>
+                  <p>{singleEvent._embedded.venues[0].city.name}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : (
+        <NoResults />
+      )}
+    </section>
   );
 };
 
-export default SearchBar;
+export default EventResults;

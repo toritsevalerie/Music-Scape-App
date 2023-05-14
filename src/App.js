@@ -10,7 +10,7 @@ function App() {
   const apiKey = "xGNjSwzsjYdnIi8lqNJUVAfyjMzZoQ8g";
 
   const [displayEvents, setDisplayEvents] = useState([]);
-  // const [error, setError] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchEvents = (keyword) => {
     if (keyword !== "") {
@@ -26,11 +26,11 @@ function App() {
           console.log(response.data._embedded.events);
 
           setDisplayEvents(response.data._embedded.events);
-          // setError(false);
+          setError(false);
         })
         .catch((error) => {
           console.log(error);
-          // setError(true);
+          setError(true);
           setDisplayEvents([]);
         });
     } else {
@@ -38,11 +38,11 @@ function App() {
     }
   };
   return (
-    <> 
-    <SearchBar onSubmit ={fetchEvents} />
-    <CategoryButtons/>
+    <>
+      <SearchBar onSubmit={fetchEvents} />
+      <CategoryButtons />
+      {error ? <NoResults /> : <EventResults events={displayEvents} />}
     </>
-    
   );
 }
 
