@@ -1,9 +1,9 @@
-import NoResults from "./NoResults.js";
+
 
 const EventResults = ({ events }) => {
   return (
     <section>
-      {events && events.length === 0 ? (
+      {events.length === 0 ? (
         <h3>Search for your favourite events</h3>
       ) : events.length > 0 ? (
         <section>
@@ -23,9 +23,7 @@ const EventResults = ({ events }) => {
             })}
           </ul>
         </section>
-      ) : (
-        <NoResults />
-      )}
+      ) : null}
     </section>
   );
 };

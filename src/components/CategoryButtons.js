@@ -3,6 +3,7 @@ import GenreList from "./GenreList.js";
 import ArtistList from "./ArtistList.js";
 
 const CategoryButtons = () => {
+    // initialzing a state variable here to keep track of the two buttons 
   const [activeButton, setActiveButton] = useState("genreButton");
 
   const handleClick = (button) => {
