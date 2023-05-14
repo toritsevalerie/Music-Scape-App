@@ -1,24 +1,17 @@
-import logo from './logo.svg';
+import SearchBar from "./components/SearchBar.js";
+import CategoryButtons from "./components/CategoryButtons.js";
+import EventResults from "./components/EventResults";
+import NoResults from "./components/NoResults";
+import axios from "axios";
+import { useState} from "react";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <> 
+    <CategoryButtons/>
+    </>
+    
   );
 }
 
