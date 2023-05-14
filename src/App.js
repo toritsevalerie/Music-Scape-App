@@ -42,6 +42,19 @@ function App() {
       <SearchBar onSubmit={fetchEvents} />
       <CategoryButtons />
       {error ? <NoResults /> : <EventResults events={displayEvents} />}
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href=""></a>
+          </li>
+          <li>
+            <a href=""></a>
+          </li>
+        </ul>
+      </nav>
     </>
   );
 }
