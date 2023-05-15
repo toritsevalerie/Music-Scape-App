@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const EventResults = ({ events }) => {
   return (
@@ -12,12 +12,14 @@ const EventResults = ({ events }) => {
             {events.map((singleEvent) => {
               return (
                 <li key={singleEvent.id}>
-                  <img
-                    src={singleEvent.images[0].url}
-                    alt={singleEvent.description}
-                  />
-                  <p>{singleEvent.name}</p>
-                  <p>{singleEvent._embedded.venues[0].city.name}</p>
+                  <Link to={`/event/${singleEvent.id}`}>
+                    <img
+                      src={singleEvent.images[0].url}
+                      alt={singleEvent.description}
+                    />
+                    <p>{singleEvent.name}</p>
+                    <p>{singleEvent._embedded.venues[0].city.name}</p>
+                  </Link>
                 </li>
               );
             })}

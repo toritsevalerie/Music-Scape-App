@@ -2,9 +2,11 @@ import SearchBar from "./components/SearchBar.js";
 import CategoryButtons from "./components/CategoryButtons.js";
 import EventResults from "./components/EventResults";
 import NoResults from "./components/NoResults";
+import { Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { useState} from "react";
-import './App.css';
+import { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "./App.css";
 
 function App() {
   const apiKey = "xGNjSwzsjYdnIi8lqNJUVAfyjMzZoQ8g";
@@ -39,24 +41,37 @@ function App() {
   };
   return (
     <>
-      <SearchBar onSubmit={fetchEvents} />
-      <CategoryButtons />
-      {error ? <NoResults /> : <EventResults events={displayEvents} />}
       <nav>
         <ul>
           <li>
-            <a href="/">Home</a>
+            <a href="/">
+              <i class="fa-solid fa-house"></i>
+            </a>
           </li>
-          <li>
-            <a href=""></a>
-          </li>
-          <li>
-            <a href=""></a>
-          </li>
+          <li></li>
         </ul>
       </nav>
+      <SearchBar onSubmit={fetchEvents} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            error ? <NoResults /> : <EventResults events={displayEvents} />
+          }
+        />
+        <Route path="/search" element={<CategoryButtons />} />
+      </Routes>
     </>
   );
 }
 
 export default App;
+
+/*
+PSEUDO CODE 
+
+Page 1 (Home): Displays catalogue of a bunch of events after search 
+
+Page 2: (About Events) Displays details about events when the user clicks on 
+ 
+ */
