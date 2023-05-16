@@ -41,42 +41,39 @@ function App() {
     }
   };
   return (
-    <>
-      <wrapper>
-        <nav>
-          <ul className="navigation-bar">
-            <li className="logo">MusicScape</li>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/foryou">For You</Link>
-            </li>
-          </ul>
+    <header>
+      <nav>
+        <ul className="navigation-bar">
+          <li className="logo">MusicScape</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/foryou">For You</Link>
+          </li>
+        </ul>
 
-          <ul className="login-nav-bar">
-            <li className="account-button">
-              <Link to="">Create an Account</Link>
-            </li>
-            <li className="login-button">
-              <Link to="">Login</Link>
-            </li>
-          </ul>
-        </nav>
-        <nav></nav>
-        <SearchBar onSubmit={fetchEvents} />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              error ? <NoResults /> : <EventResults events={displayEvents} />
-            }
-          />
-          <Route path="/foryou" element={<CategoryButtons />} />
-          <Route path="/event/:eventIdGoesHere" element={<EventDetails />} />
-        </Routes>
-      </wrapper>
-    </>
+        <ul className="login-nav-bar">
+          <li className="account-button">
+            <Link to="">Create an Account</Link>
+          </li>
+          <li className="login-button">
+            <Link to="">Login</Link>
+          </li>
+        </ul>
+      </nav>
+      <nav></nav>
+      <SearchBar onSubmit={fetchEvents} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            error ? <NoResults /> : <EventResults events={displayEvents} />
+          }
+        />
+        <Route path="/foryou" element={<CategoryButtons />} />
+      </Routes>
+    </header>
   );
 }
 

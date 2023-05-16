@@ -133,7 +133,7 @@ h1 {
   list-style: none;
 }
 .event-results img {
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
 }
 .artist-name,

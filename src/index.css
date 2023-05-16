@@ -1,7 +1,7 @@
 body {
   background-color: #152238;
 }
-wrapper {
+header {
   display: block;
   max-width: 1200px;
   width: 90%;
