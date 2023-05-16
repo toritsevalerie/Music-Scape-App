@@ -1,5 +1,6 @@
 import { useState} from "react";
 
+
 const SearchBar = ({ onSubmit }) => {
   
   const [userInput, setUserInput] = useState("");
@@ -26,7 +27,7 @@ const SearchBar = ({ onSubmit }) => {
         value={userInput}
         onChange={handleChange}
       />
-      <button>Go</button>
+      <button>Search</button>
     </form>
   );
 };
