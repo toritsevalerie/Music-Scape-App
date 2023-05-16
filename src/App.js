@@ -41,9 +41,10 @@ function App() {
   };
   return (
     <>
-      <h1>MusicScape</h1>
+    <wrapper>
       <nav>
         <ul className="navigation-bar">
+          <li className="logo">MusicScape</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -51,11 +52,12 @@ function App() {
             <Link to="/foryou">For You</Link>
           </li>
         </ul>
+
         <ul className="login-nav-bar">
-          <li>
+          <li className="account-button">
             <Link to="">Create an Account</Link>
           </li>
-          <li>
+          <li className="login-button">
             <Link to="">Login</Link>
           </li>
         </ul>
@@ -71,6 +73,8 @@ function App() {
         />
         <Route path="/foryou" element={<CategoryButtons />} />
       </Routes>
+    </wrapper>
+      
     </>
   );
 }

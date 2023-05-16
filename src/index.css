@@ -1,4 +1,14 @@
 body {
+  background-color: #152238;
+}
+wrapper {
+  display: block;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+body {
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif;
 }
