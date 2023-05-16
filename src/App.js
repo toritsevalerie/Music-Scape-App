@@ -41,16 +41,26 @@ function App() {
   };
   return (
     <>
+      <h1>MusicScape</h1>
       <nav>
-        <ul>
+        <ul className="navigation-bar">
           <li>
-            <a href="/">
-              <i class="fa-solid fa-house"></i>
-            </a>
+            <Link to="/">Home</Link>
           </li>
-          <li></li>
+          <li>
+            <Link to="/foryou">For You</Link>
+          </li>
+        </ul>
+        <ul className="login-nav-bar">
+          <li>
+            <Link to="">Create an Account</Link>
+          </li>
+          <li>
+            <Link to="">Login</Link>
+          </li>
         </ul>
       </nav>
+      <nav></nav>
       <SearchBar onSubmit={fetchEvents} />
       <Routes>
         <Route
@@ -59,7 +69,7 @@ function App() {
             error ? <NoResults /> : <EventResults events={displayEvents} />
           }
         />
-        <Route path="/search" element={<CategoryButtons />} />
+        <Route path="/foryou" element={<CategoryButtons />} />
       </Routes>
     </>
   );
