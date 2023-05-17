@@ -1,13 +1,15 @@
 import { useState} from "react";
 
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onSubmit,setKeyword, onClick }) => {
   
   const [userInput, setUserInput] = useState("");
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(userInput); // prevent default and call the fetchevents function with userinput as an argument
+    
 
     setTimeout(() => {
       setUserInput("");
@@ -15,7 +17,10 @@ const SearchBar = ({ onSubmit }) => {
   };
   const handleChange = (e) => {
     setUserInput(e.target.value);
+    setKeyword(e.target.value);
+    
   };
+
 
   return (
     <form onSubmit={handleSubmit}>

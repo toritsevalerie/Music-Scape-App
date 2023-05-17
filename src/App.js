@@ -2,7 +2,6 @@ import SearchBar from "./components/SearchBar.js";
 import CategoryButtons from "./components/CategoryButtons.js";
 import EventResults from "./components/EventResults";
 import NoResults from "./components/NoResults";
-import EventDetails from "./components/EventDetails.js";
 import { Link, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
@@ -14,6 +13,7 @@ function App() {
 
   const [displayEvents, setDisplayEvents] = useState([]);
   const [error, setError] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   const fetchEvents = (keyword) => {
     if (keyword !== "") {
@@ -63,15 +63,36 @@ function App() {
         </ul>
       </nav>
       <nav></nav>
-      <SearchBar onSubmit={fetchEvents} />
+      <SearchBar onSubmit={fetchEvents} setKeyword={setKeyword} />
       <Routes>
         <Route
           path="/"
           element={
-            error ? <NoResults /> : <EventResults events={displayEvents} />
+            error ? (
+              <NoResults />
+            ) : (
+              <EventResults events={displayEvents} keyword={keyword} />
+            )
           }
         />
-        <Route path="/foryou" element={<CategoryButtons />} />
+        <Route
+          path="/foryou"
+          element={
+            <>
+              {error ? (
+                <>
+                  <CategoryButtons />
+                  <NoResults />
+                </>
+              ) : (
+                <>
+                  <CategoryButtons />
+                  <EventResults events={displayEvents} keyword={keyword} />
+                </>
+              )}
+            </>
+          }
+        />
       </Routes>
     </header>
   );

@@ -134,6 +134,8 @@ h1 {
 }
 .event-results img {
   width: 100%;
+  height: auto;
+  display: block;
   border-radius: 5px;
 }
 .artist-name,
@@ -141,4 +143,32 @@ h1 {
   color: white;
   text-align: center;
   text-decoration: none;
+  text-decoration-line: none;
+}
+
+/* Media Queries  */
+
+@media (max-width: 1300px) {
+  input {
+  border-radius: 5px;
+  margin: 0px 5px;
+}
+  form {
+    display: flex;
+    background-color: #152238;
+    border-radius: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  form button {
+    
+    padding: 10px 17px;
+    background-color: #29517a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid #29517a;
+    
+  }
 }

@@ -5,7 +5,7 @@ const GenreList = () => {
     { genre: "Rock", id: 1 },
     { genre: "Pop", id: 2 },
     { genre: "Classical", id: 3 },
-    { genre: "Punk-Rock", id: 3 },
+    { genre: "Punk-Rock", id: 4 },
   ];
 
   return genresArray.map((singleGenreObject) => {
