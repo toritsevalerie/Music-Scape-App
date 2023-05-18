@@ -11,9 +11,12 @@ const GenreList = ({onGenreClick}) => {
     { genre: "Punk-Rock", id: 4 },
   ];
 
+  
+
   const handleGenreClick = (genre) => { 
     setClickedWord(genre)
-    onGenreClick(genre)
+    onGenreClick(clickedWord)
+    
   }
 
   return genresArray.map((singleGenreObject) => {
