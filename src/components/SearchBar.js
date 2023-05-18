@@ -4,6 +4,7 @@ import { useState} from "react";
 const SearchBar = ({ onSubmit,setKeyword, onClick }) => {
   
   const [userInput, setUserInput] = useState("");
+  // const [wordClicked, setWordClicked] = useState("");
   
 
   const handleSubmit = (e) => {

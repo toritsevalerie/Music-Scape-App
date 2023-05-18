@@ -2,9 +2,16 @@ import { useState } from "react";
 import GenreList from "./GenreList.js";
 import ArtistList from "./ArtistList.js";
 
-const CategoryButtons = () => {
+const CategoryButtons = ({ onClick, setTitleClickedWord }) => {
   // initialzing a state variable here to keep track of the two buttons
   const [activeButton, setActiveButton] = useState("genreButton");
+  const [clickedWord, setClickedWord] = useState("");
+
+  const handleGenreClick = (word) => {
+    setClickedWord(word);
+    onClick(clickedWord);
+    setTitleClickedWord(clickedWord)
+  };
 
   const handleClick = (button) => {
     setActiveButton(button);
@@ -26,7 +33,7 @@ const CategoryButtons = () => {
 
       {activeButton === "genreButton" && (
         <ul className="genre-list">
-          <GenreList />
+          <GenreList onGenreClick={handleGenreClick} />
         </ul>
       )}
       {activeButton === "artistButton" && (

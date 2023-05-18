@@ -1,4 +1,7 @@
+
+
 const ArtistList = () => {
+
   const artistsArray = [
     { artist: "Rema", id: 1 },
     { artist: "Taylor Swift", id: 2 },
@@ -9,7 +12,9 @@ const ArtistList = () => {
   return artistsArray.map((singleArtistObject) => {
     console.log("rendering each artist:", singleArtistObject.artist);
     return (
-      <li key={singleArtistObject.id}>
+      <li
+        key={singleArtistObject.id}
+      >
         <div>
           <p>{singleArtistObject.artist}</p>
         </div>

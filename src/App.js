@@ -14,6 +14,7 @@ function App() {
   const [displayEvents, setDisplayEvents] = useState([]);
   const [error, setError] = useState(false);
   const [keyword, setKeyword] = useState("");
+  const [titleclickedWord, setTitleClickedWord] = useState(""); 
 
   const fetchEvents = (keyword) => {
     if (keyword !== "") {
@@ -44,7 +45,9 @@ function App() {
     <header>
       <nav>
         <ul className="navigation-bar">
-          <li className="logo">MusicScape</li>
+          <li className="logo">
+            <Link to="/">MusicScape</Link>
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -71,7 +74,11 @@ function App() {
             error ? (
               <NoResults />
             ) : (
-              <EventResults events={displayEvents} keyword={keyword} />
+              <EventResults
+                events={displayEvents}
+                keyword={keyword}
+                titleclickedWord={titleclickedWord}
+              />
             )
           }
         />
@@ -81,19 +88,30 @@ function App() {
             <>
               {error ? (
                 <>
-                  <CategoryButtons />
+                  <CategoryButtons
+                    onClick={fetchEvents}
+                    setTitleClickedWord={setTitleClickedWord}
+                  />
                   <NoResults />
                 </>
               ) : (
                 <>
-                  <CategoryButtons />
-                  <EventResults events={displayEvents} keyword={keyword} />
+                  <CategoryButtons
+                    onClick={fetchEvents}
+                    setTitleClickedWord={setTitleClickedWord}
+                  />
+                  <EventResults
+                    events={displayEvents}
+                    keyword={keyword}
+                    titleclickedWord={titleclickedWord}
+                  />
                 </>
               )}
             </>
           }
         />
       </Routes>
+      <p> © Toritse Tuedor / Created @ Juno College</p>
     </header>
   );
 }
